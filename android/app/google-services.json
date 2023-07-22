@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "809300336767",
+    "project_id": "foodelicious-e13e7",
+    "storage_bucket": "foodelicious-e13e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809300336767:android:06a94cb9619e6fcf129f4a",
+        "android_client_info": {
+          "package_name": "com.foodelicious"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809300336767-lv6lv1itvpj8uf4oo6qbnmhod82gapmb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foodelicious",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "809300336767-dtql5u1jbel3c6674aho009ah14rkhh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoYQn0Jiy9cHPBBIcjqdWknwGMXx8HuCs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809300336767-dtql5u1jbel3c6674aho009ah14rkhh3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
