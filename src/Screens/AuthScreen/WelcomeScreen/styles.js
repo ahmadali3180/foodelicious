@@ -1,5 +1,10 @@
 import {StyleSheet, Platform, StatusBar} from 'react-native';
 import {Constants} from '../../../Assets/Constants';
+import {
+  responsiveFontSize,
+  responsiveScreenFontSize,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
 const colors = Constants.colors;
 
 export default StyleSheet.create({
@@ -12,21 +17,21 @@ export default StyleSheet.create({
   },
   headingView: {
     flex: 1,
-    paddingHorizontal: 20,
-    marginTop: '20%',
+    paddingHorizontal: responsiveWidth(5),
+    marginTop: responsiveWidth(20),
   },
   welcomeTextSecondary: {
-    fontSize: 30,
+    fontSize: responsiveFontSize(3.25),
     fontFamily: 'Poppins-Bold',
     color: colors.defaultBlack,
   },
   welcomeTextPrimary: {
-    fontSize: 30,
+    fontSize: responsiveFontSize(3.9),
     fontFamily: 'Poppins-Bold',
     color: colors.defaultOrange,
   },
   welcomeTextSubtitle: {
-    fontSize: 17,
+    fontSize: responsiveFontSize(2),
     color: colors.defaultBlueGray,
   },
   // Login Options View
@@ -35,44 +40,39 @@ export default StyleSheet.create({
     flex: 1,
   },
   loginWithText: {
-    fontSize: 21,
+    fontSize: responsiveFontSize(2.25),
     color: colors.defaultBlack,
     fontFamily: 'Poppins-Medium',
     textAlign: 'center',
   },
   loginOptionContainer: {
     alignItems: 'center',
-    marginTop: '10%',
+    marginTop: responsiveWidth(10),
   },
   socialLoginContainer: {
     width: '100%',
-    padding: 20,
+    padding: responsiveWidth(10),
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
   },
   socialLoginButton: {
-    padding: 16,
-    backgroundColor: colors.defaultLightGray,
-    borderRadius: 40,
-    width: '37.5%',
+    padding: responsiveWidth(3),
+    backgroundColor: colors.defaultPlaceholderGray,
+    borderRadius: responsiveFontSize(5),
+    width: '40%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   socialLoginButtonText: {
-    fontSize: 18,
-    textAlign: 'center',
+    fontSize: responsiveFontSize(2.125),
     fontFamily: 'Poppins-Medium',
     color: colors.defaultBlack,
   },
   emailLoginButton: {
-    borderRadius: 40,
+    borderRadius: responsiveFontSize(5),
     backgroundColor: colors.defaultOrange,
-    padding: 16,
+    padding: responsiveFontSize(2),
     width: '70%',
     marginTop: '8%',
-  },
-  emailLoginButtonText: {
-    fontSize: 18,
-    color: colors.defaultWhite,
-    textAlign: 'center',
-    fontFamily: 'Poppins-Medium',
   },
 });

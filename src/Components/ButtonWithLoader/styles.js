@@ -7,7 +7,7 @@ const colors = Constants.colors;
 export default StyleSheet.create({
   loginButton: {
     marginTop: '7.5%',
-    padding: '5%',
+    padding: '3%',
     width: '80%',
     alignSelf: 'center',
     backgroundColor: colors.defaultOrange,
