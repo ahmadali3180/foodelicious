@@ -3,6 +3,8 @@ import React from 'react';
 import styles from './styles';
 import ButtonWithLoader from '../../../Components/ButtonWithLoader';
 import auth from '@react-native-firebase/auth';
+import {useSelector} from 'react-redux';
+import CustomProfileHeader from '../../../Components/CustomProfileHeader';
 
 const ProfileScreen = () => {
   const onLogoutPressed = async () => {
@@ -12,9 +14,10 @@ const ProfileScreen = () => {
       console.log('error: ', error);
     }
   };
+  const user = useSelector(state => state.user.user);
   return (
     <View style={styles.container}>
-      <Text style={{marginBottom: '10%'}}>ProfileScreen</Text>
+      <CustomProfileHeader name={user.displayName} />
       <ButtonWithLoader title={'LOGOUT'} onPress={onLogoutPressed} />
     </View>
   );
