@@ -7,6 +7,8 @@ import {useSelector} from 'react-redux';
 import CustomProfileHeader from '../../../Components/CustomProfileHeader';
 
 const ProfileScreen = () => {
+  const user = useSelector(state => state.user.user);
+
   const onLogoutPressed = async () => {
     try {
       await auth().signOut();
@@ -14,7 +16,7 @@ const ProfileScreen = () => {
       console.log('error: ', error);
     }
   };
-  const user = useSelector(state => state.user.user);
+
   return (
     <View style={styles.container}>
       <CustomProfileHeader name={user.displayName} />

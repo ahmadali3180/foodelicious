@@ -29,11 +29,11 @@ const SignupScreen = () => {
     if (email && password.length >= 6 && fullname) {
       await auth()
         .createUserWithEmailAndPassword(email, password)
-        .then(userCred =>
+        .then(userCred => {
           userCred.user
             .updateProfile({displayName: fullname})
-            .then(() => console.log('Successfully Added Name')),
-        )
+            .then(() => console.log('Successfully Added Name'));
+        })
         .catch(error => Alert.alert('Error Occured: ', error));
     }
   };

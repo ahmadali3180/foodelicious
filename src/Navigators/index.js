@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {
   HomeScreen,
   ProductDetailsScreen,
@@ -23,6 +24,7 @@ import {setUser} from '../Redux/slices/user';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 const RootNaviagtor = () => {
   const {user} = useSelector(state => state.user);
@@ -34,7 +36,6 @@ const RootNaviagtor = () => {
         const customUser = {
           displayName: u?.displayName,
           email: u?.email,
-          emailVerified: u?.emailVerified,
           uid: u?.uid,
           phoneNumber: u?.phoneNumber,
         };
@@ -46,14 +47,25 @@ const RootNaviagtor = () => {
     return () => subscriber(); // unsubscribe on unmount
   }, []);
 
-  return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      {user ? (
-        <Stack.Screen name="App" component={AppStack} />
-      ) : (
+  if (!user) {
+    return (
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Auth" component={AuthStack} />
-      )}
-    </Stack.Navigator>
+      </Stack.Navigator>
+    );
+  }
+
+  return <DrawerNavigator />;
+};
+
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator screenOptions={{headerShown: false}}>
+      <Drawer.Screen name="ASHome" component={AppStack} />
+      <Drawer.Screen name="My Profile" component={ProfileScreen} />
+      <Drawer.Screen name="My Orders" component={OrderStack} />
+      <Drawer.Screen name="Settings" component={SettingsScreen} />
+    </Drawer.Navigator>
   );
 };
 
@@ -94,7 +106,7 @@ const ProfileStack = () => {
 const MainTabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
-      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="MTNHome" component={HomeStack} />
       <Tab.Screen name="Orders" component={OrderStack} />
       <Tab.Screen name="Cart" component={CartStack} />
       <Tab.Screen name="Profile" component={ProfileStack} />
